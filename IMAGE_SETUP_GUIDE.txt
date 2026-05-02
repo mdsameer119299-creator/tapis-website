@@ -1,0 +1,307 @@
+<!-- EXAMPLE: How to Add Images to TAPIS GLOBAL Website -->
+
+<!-- 
+FILE NAME: IMAGE_SETUP_GUIDE.txt
+PURPOSE: Shows how to replace emoji placeholders with actual images
+LOCATION: Read this file to understand image integration
+-->
+
+STEP 1: Prepare Your Images
+========================
+
+1. Create image files in JPG, PNG, or WebP format
+2. Recommended sizes:
+   - Product images: 400x300px
+   - Project images: 600x400px
+   - Team photos: 300x300px
+   - Logo: 200x80px
+
+3. Place all images in the "images/" folder
+
+
+STEP 2: Replace Product Card Images
+===================================
+
+BEFORE (Current with emoji):
+----------------------------
+<div class="product-card">
+    <div class="product-image">🧵</div>
+    <div class="product-info">
+        <h3>Luxe Silk Carpets</h3>
+        ...
+    </div>
+</div>
+
+
+AFTER (With actual image):
+-------------------------
+<div class="product-card">
+    <div class="product-image">
+        <img src="images/luxe-silk-carpets.jpg" alt="Luxe Silk Carpets" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div class="product-info">
+        <h3>Luxe Silk Carpets</h3>
+        ...
+    </div>
+</div>
+
+
+STEP 3: Replace Project Card Images
+===================================
+
+BEFORE:
+------
+<div class="project-image">🏨</div>
+
+
+AFTER:
+-----
+<div class="project-image">
+    <img src="images/dubai-resort.jpg" alt="Dubai Luxury Resort" style="width: 100%; height: 100%; object-fit: cover;">
+</div>
+
+
+STEP 4: Update Hero Section Background (Optional)
+=================================================
+
+Replace the about-image divs with:
+
+<div class="about-image">
+    <img src="images/hero-image.jpg" alt="Company Hero Image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+</div>
+
+
+STEP 5: Add Logo (Optional)
+==========================
+
+Replace this in navigation:
+<a href="index.html" class="logo">TAPIS<span> GLOBAL</span></a>
+
+With:
+<a href="index.html" class="logo">
+    <img src="images/logo.png" alt="TAPIS GLOBAL Logo" style="height: 50px;">
+</a>
+
+
+FILE ORGANIZATION EXAMPLE
+=======================
+
+images/
+├── products/
+│   ├── luxe-silk-carpets.jpg
+│   ├── persian-carpet.jpg
+│   ├── marble-tiles.jpg
+│   └── ... (other products)
+│
+├── projects/
+│   ├── dubai-resort.jpg
+│   ├── paris-hotel.jpg
+│   ├── singapore-marina.jpg
+│   └── ... (other projects)
+│
+├── team/
+│   ├── ahmed-mansouri.jpg
+│   ├── fatima-alzahra.jpg
+│   └── mohammad-hassan.jpg
+│
+└── misc/
+    ├── logo.png
+    ├── hero-image.jpg
+    └── company-photo.jpg
+
+
+IMAGE OPTIMIZATION TIPS
+======================
+
+1. Compress images before uploading
+   - TinyPNG: https://tinypng.com/
+   - ImageOptim (Mac): https://imageoptim.com/
+
+2. Use WebP format for better compression
+   - Reduces file size by 30-40%
+
+3. Recommended file sizes:
+   - Product images: 50-150KB
+   - Project images: 100-200KB
+   - Hero images: 200-400KB
+
+4. Responsive images example:
+   <img src="images/product.jpg" 
+        srcset="images/product-small.jpg 480w,
+                images/product-medium.jpg 768w,
+                images/product-large.jpg 1200w"
+        sizes="(max-width: 480px) 100vw,
+               (max-width: 768px) 50vw,
+               33vw"
+        alt="Product Name">
+
+
+CSS FOR CONSISTENT IMAGE STYLING
+================================
+
+Add to styles.css if needed:
+
+.product-image img,
+.project-image img,
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+EXAMPLE: Complete Product Card with Image
+==========================================
+
+<div class="product-card">
+    <div class="product-image">
+        <img src="images/products/luxe-silk-carpets.jpg" 
+             alt="Luxe Silk Carpets Premium Collection"
+             style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div class="product-info">
+        <h3>Luxe Silk Carpets</h3>
+        <p>Exquisite hand-woven carpets with pure silk blend for ultimate comfort.</p>
+        <div class="product-specs">
+            <strong>Premium Quality</strong><br>
+            Material: Silk & Wool<br>
+            Custom Sizes Available
+        </div>
+    </div>
+</div>
+
+
+EXAMPLE: Complete Project Card with Image
+==========================================
+
+<div class="project-card">
+    <div class="project-image">
+        <img src="images/projects/dubai-resort.jpg" 
+             alt="Dubai Luxury Resort - 5-Star Hotel"
+             style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div class="project-details">
+        <h3>Dubai Luxury Resort</h3>
+        <p>5-star resort featuring 2000+ sq meters of premium Persian carpets...</p>
+        <div class="project-tags">
+            <span class="tag">Hospitality</span>
+            <span class="tag">Carpets</span>
+            <span class="tag">2023</span>
+        </div>
+    </div>
+</div>
+
+
+BACKGROUND IMAGES (Advanced)
+============================
+
+To add background images to sections:
+
+<section class="hero" style="background-image: url('images/hero-background.jpg'); background-size: cover; background-position: center;">
+    ...
+</section>
+
+With gradient overlay:
+
+<section class="hero" style="background-image: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.8)), url('images/hero-background.jpg'); background-size: cover; background-position: center;">
+    ...
+</section>
+
+
+ACCESSIBILITY & SEO BEST PRACTICES
+=================================
+
+1. Always include descriptive alt text:
+   <img src="..." alt="Premium hand-woven silk carpet in burgundy and gold">
+
+2. Use meaningful file names:
+   GOOD: luxe-silk-carpet-burgundy.jpg
+   BAD: image123.jpg
+
+3. Include image titles for tooltips:
+   <img src="..." title="Hover text appears here">
+
+4. Lazy loading for performance:
+   <img src="..." alt="..." loading="lazy">
+
+
+TROUBLESHOOTING IMAGE ISSUES
+===========================
+
+Problem: Images not showing
+Solution: 
+- Check file path is correct
+- Check file exists in images/ folder
+- Check spelling matches exactly
+- Try absolute path if relative doesn't work
+
+Problem: Image distorted
+Solution:
+- Add style="object-fit: cover;" to maintain aspect ratio
+- Ensure image is proper size
+- Use contain instead of cover if needed
+
+Problem: Slow page load
+Solution:
+- Compress images with TinyPNG
+- Use WebP format
+- Reduce image resolution
+- Implement lazy loading
+
+Problem: Image not responsive
+Solution:
+- Add max-width: 100% to image CSS
+- Use srcset for different sizes
+- Test on mobile devices
+
+
+IMAGE BATCH REPLACEMENT SCRIPT
+=============================
+
+To replace all emojis at once in a file, use Find & Replace:
+
+Find: 🧵
+Replace: <img src="images/products/carpet.jpg" alt="Carpet" style="width:100%;height:100%;object-fit:cover;">
+
+Repeat for each emoji used:
+🏛️ - marble
+✨ - premium/special
+🏠 - residential
+🏢 - commercial
+🏆 - award/achievement
+
+
+RECOMMENDED IMAGE SOURCES
+=========================
+
+Free stock images:
+- Unsplash.com
+- Pexels.com
+- Pixabay.com
+- Freepik.com (premium quality)
+
+For professional images:
+- Shutterstock.com
+- Getty Images
+- Adobe Stock
+- iStock
+
+For graphic design:
+- Canva.com (easy templates)
+- Figma.com (professional design)
+- Adobe Creative Suite
+
+
+NEXT STEPS
+=========
+
+1. Prepare your images (JPG, PNG)
+2. Save them in images/ folder
+3. Update HTML using examples above
+4. Test website on different devices
+5. Optimize images for web
+6. Deploy to server
+
+
+Need help? See README.md and QUICKSTART.md for more details!
