@@ -1,192 +1,176 @@
-// Hamburger Menu Toggle
-document.addEventListener('DOMContentLoaded', function() {
+// TAPIS GLOBAL INTERNATIONAL PVT LTD
+// Lightweight interactions for premium navigation, animations, and forms.
+
+document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('.site-header') || document.querySelector('body > nav');
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
 
-    if (hamburger) {
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu when a link is clicked
-        const links = navLinks.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', function() {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-    }
-
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!event.target.closest('.navbar') && navLinks && navLinks.classList.contains('active')) {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-        }
-    });
-
-    // Hero Section Reveal Animation
-    const heroContent = document.querySelector('.hero-content');
-    const enquiryForm = document.querySelector('.enquiry-form');
-    
-    if (heroContent && enquiryForm) {
-        heroContent.style.opacity = '0';
-        heroContent.style.transform = 'translateY(30px)';
-        enquiryForm.style.opacity = '0';
-        enquiryForm.style.transform = 'translateX(50px)';
-        
-        setTimeout(() => {
-            heroContent.style.transition = 'all 0.8s ease-out';
-            enquiryForm.style.transition = 'all 0.8s ease-out 0.2s';
-            heroContent.style.opacity = '1';
-            heroContent.style.transform = 'translateY(0)';
-            enquiryForm.style.opacity = '1';
-            enquiryForm.style.transform = 'translateX(0)';
-        }, 100);
-    }
-
-    // Form Handling
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-
-            // Simple validation
-            if (!data.name || !data.email || !data.message) {
-                showMessage('Please fill in all required fields', 'error');
-                return;
-            }
-
-            // Email validation
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(data.email)) {
-                showMessage('Please enter a valid email address', 'error');
-                return;
-            }
-
-            // Show success message (in real application, would send to server)
-            showMessage('Thank you! We will get back to you soon.', 'success');
-            this.reset();
-
-            // Log form data (for demonstration)
-            console.log('Form submitted:', data);
-        });
-    });
-
-    // Message Display Function
-    function showMessage(message, type) {
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `message ${type}`;
-        messageDiv.textContent = message;
-        messageDiv.style.cssText = `
-            position: fixed;
-            top: 80px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 1rem 2rem;
-            background-color: ${type === 'success' ? 'rgba(76, 175, 80, 0.95)' : 'rgba(244, 67, 54, 0.95)'};
-            color: white;
-            border-radius: 8px;
-            z-index: 9999;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-            animation: slideIn 0.4s ease-out;
-            border: 1px solid ${type === 'success' ? 'rgba(76, 175, 80, 1)' : 'rgba(244, 67, 54, 1)'};
-            backdrop-filter: blur(10px);
-        `;
-
-        // Add animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from {
-                    transform: translateX(-50%) translateY(-20px);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(-50%) translateY(0);
-                    opacity: 1;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
-        document.body.appendChild(messageDiv);
-
-        // Remove message after 4 seconds
-        setTimeout(() => {
-            messageDiv.style.animation = 'slideIn 0.3s ease-out reverse';
-            setTimeout(() => messageDiv.remove(), 300);
-        }, 4000);
-    }
-
-    // Smooth Scroll for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href !== '#') {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            }
-        });
-    });
-
-    // Add scroll animation for elements with stagger effect
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
-                    observer.unobserve(entry.target);
-                }, index * 50); // Stagger effect
-            }
-        });
-    }, observerOptions);
-
-    // Add fade-in animation
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    `;
-    document.head.appendChild(style);
-
-    // Observe product and project cards
-    document.querySelectorAll('.product-card, .project-card').forEach(card => {
-        observer.observe(card);
-    });
+    setupStickyHeader(header);
+    setupLogoFallbacks();
+    setupMobileNavigation(hamburger, navLinks);
+    setupRevealAnimations();
+    setupSmoothScroll();
+    setupForms();
+    handleViewportHeight();
 });
 
-// Mobile viewport height fix
+window.addEventListener('resize', handleViewportHeight);
+
+function setupLogoFallbacks() {
+    document.querySelectorAll('.brand-logo, .footer-logo img').forEach((logo) => {
+        const fallback = logo.nextElementSibling;
+        if (!fallback || !fallback.classList.contains('brand-fallback')) return;
+
+        const showFallback = () => {
+            logo.hidden = true;
+            fallback.hidden = false;
+        };
+
+        const showLogo = () => {
+            logo.hidden = false;
+            fallback.hidden = true;
+        };
+
+        if (logo.complete && logo.naturalWidth === 0) {
+            showFallback();
+            return;
+        }
+
+        if (logo.complete && logo.naturalWidth > 0) {
+            showLogo();
+            return;
+        }
+
+        logo.addEventListener('load', showLogo, { once: true });
+        logo.addEventListener('error', showFallback, { once: true });
+    });
+}
+
+function setupStickyHeader(header) {
+    if (!header) return;
+
+    const updateHeader = () => {
+        header.classList.toggle('is-scrolled', window.scrollY > 16);
+    };
+
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+}
+
+function setupMobileNavigation(hamburger, navLinks) {
+    if (!hamburger || !navLinks) return;
+
+    const closeMenu = () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    };
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!event.target.closest('.navbar') && navLinks.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+}
+
+function setupRevealAnimations() {
+    const animatedItems = document.querySelectorAll(
+        'main > section, .serve-grid article, .product-showcase-grid article, .project-grid-home article, .solution-grid article, .cert-grid div'
+    );
+
+    if (!('IntersectionObserver' in window)) {
+        animatedItems.forEach((item) => item.classList.add('is-visible'));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -80px 0px'
+    });
+
+    animatedItems.forEach((item, index) => {
+        item.classList.add('reveal-section');
+        item.style.transitionDelay = `${Math.min(index % 8, 6) * 55}ms`;
+        observer.observe(item);
+    });
+}
+
+function setupSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', (event) => {
+            const href = anchor.getAttribute('href');
+            if (!href || href === '#') return;
+
+            const target = document.querySelector(href);
+            if (!target) return;
+
+            event.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+}
+
+function setupForms() {
+    document.querySelectorAll('form').forEach((form) => {
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const emailInput = form.querySelector('input[type="email"]');
+            const requiredFields = form.querySelectorAll('[required]');
+            const hasEmptyField = Array.from(requiredFields).some((field) => !field.value.trim());
+
+            if (hasEmptyField) {
+                showMessage('Please fill in all required fields.', 'error');
+                return;
+            }
+
+            if (emailInput && !isValidEmail(emailInput.value.trim())) {
+                showMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            showMessage('Thank you. Our team will contact you shortly.', 'success');
+            form.reset();
+        });
+    });
+}
+
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function showMessage(message, type) {
+    const existingMessage = document.querySelector('.toast-message');
+    if (existingMessage) existingMessage.remove();
+
+    const messageBox = document.createElement('div');
+    messageBox.className = `toast-message toast-message--${type}`;
+    messageBox.textContent = message;
+    document.body.appendChild(messageBox);
+
+    window.setTimeout(() => {
+        messageBox.classList.add('is-leaving');
+        window.setTimeout(() => messageBox.remove(), 280);
+    }, 3600);
+}
+
 function handleViewportHeight() {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
-
-handleViewportHeight();
-window.addEventListener('resize', handleViewportHeight);
-
