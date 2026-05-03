@@ -237,3 +237,243 @@
     <script src="js/script.js"></script>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - TAPIS GLOBAL INTERNATIONAL</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="navbar">
+            <a href="index.html" class="logo">TAPIS<span> GLOBAL</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 400px;">
+        <div class="hero-content">
+            <h1>Get In <span style="color: #d4af37;">Touch</span></h1>
+            <p>Have questions about our products or services? We'd love to hear from you. Reach out to our team for personalized assistance.</p>
+        </div>
+        <div class="about-image">
+            📞
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="container">
+        <h2>Contact Information</h2>
+        <p class="section-subtitle">Multiple ways to reach us</p>
+        <div class="contact-info">
+            <div class="info-item">
+                <h4>📍 Location</h4>
+                <p>123 Luxury Avenue</p>
+                <p>Dubai, United Arab Emirates</p>
+                <p>Business Bay District</p>
+            </div>
+            <div class="info-item">
+                <h4>📞 Phone</h4>
+                <p>Main: +971-4-123-4567</p>
+                <p>Sales: +971-4-123-4568</p>
+                <p>Support: +971-4-123-4569</p>
+            </div>
+            <div class="info-item">
+                <h4>📧 Email</h4>
+                <p>General: info@tapisglobal.com</p>
+                <p>Sales: sales@tapisglobal.com</p>
+                <p>Support: support@tapisglobal.com</p>
+            </div>
+            <div class="info-item">
+                <h4>🕐 Business Hours</h4>
+                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                <p>Saturday: 10:00 AM - 4:00 PM</p>
+                <p>Sunday: Closed</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="container">
+        <h2>Send us a Message</h2>
+        <div class="contact-form">
+            <form>
+                <div class="form-group">
+                    <label for="full-name">Full Name *</label>
+                    <input type="text" id="full-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-email">Email Address *</label>
+                    <input type="email" id="contact-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-phone">Phone Number</label>
+                    <input type="tel" id="contact-phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="inquiry-type">Inquiry Type</label>
+                    <select id="inquiry-type" name="inquiry_type" style="width: 100%; padding: 0.8rem; background-color: var(--primary-color); color: var(--text-color); border: 1px solid var(--accent-color); border-radius: 5px; font-family: inherit;">
+                        <option value="" style="background-color: var(--primary-color); color: var(--text-color);">Select an option</option>
+                        <option value="general" style="background-color: var(--primary-color); color: var(--text-color);">General Inquiry</option>
+                        <option value="product" style="background-color: var(--primary-color); color: var(--text-color);">Product Information</option>
+                        <option value="pricing" style="background-color: var(--primary-color); color: var(--text-color);">Pricing & Quote</option>
+                        <option value="installation" style="background-color: var(--primary-color); color: var(--text-color);">Installation Service</option>
+                        <option value="custom" style="background-color: var(--primary-color); color: var(--text-color);">Custom Design</option>
+                        <option value="support" style="background-color: var(--primary-color); color: var(--text-color);">Customer Support</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="project-scope">Project Scope</label>
+                    <textarea id="project-scope" name="project_scope" placeholder="Describe your project, space size, requirements..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="contact-message">Message *</label>
+                    <textarea id="contact-message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="form-submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Service Locations -->
+    <section class="container">
+        <h2>Service Locations</h2>
+        <p class="section-subtitle">We serve clients worldwide</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; padding: 2rem 0;">
+            <div style="background-color: var(--secondary-color); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--accent-color);">
+                <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">🌍 Middle East</h4>
+                <p style="color: var(--text-light);">Dubai, UAE - Headquarters</p>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Abu Dhabi, Riyadh, Doha</p>
+            </div>
+            <div style="background-color: var(--secondary-color); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--accent-color);">
+                <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">🌍 Europe</h4>
+                <p style="color: var(--text-light);">London, Paris, Milan</p>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Barcelona, Amsterdam</p>
+            </div>
+            <div style="background-color: var(--secondary-color); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--accent-color);">
+                <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">🌍 Asia Pacific</h4>
+                <p style="color: var(--text-light);">Singapore, Hong Kong, Tokyo</p>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Bangkok, Mumbai, Sydney</p>
+            </div>
+            <div style="background-color: var(--secondary-color); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--accent-color);">
+                <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">🌍 Americas</h4>
+                <p style="color: var(--text-light);">New York, Los Angeles</p>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Toronto, Miami, Mexico City</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="container" style="background-color: var(--secondary-color); margin: 2rem; padding: 3rem; border-radius: 10px;">
+        <h2>Frequently Asked Questions</h2>
+        <div style="display: grid; gap: 1.5rem; padding: 2rem 0;">
+            <div>
+                <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Q: How long does installation typically take?</h4>
+                <p style="color: var(--text-light);">A: Installation timelines vary based on project scope. Residential projects typically take 1-3 weeks, while larger commercial projects may take 4-8 weeks. We provide detailed timelines during consultation.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Q: Do you offer custom designs?</h4>
+                <p style="color: var(--text-light);">A: Yes, absolutely! We specialize in custom designs tailored to your specific requirements. Our design team works closely with clients to create unique, personalized solutions.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Q: What is your warranty policy?</h4>
+                <p style="color: var(--text-light);">A: We offer comprehensive warranties on all products. Carpets typically come with 5-year warranties, while tiles have 10-year warranties. Installation is guaranteed for 2 years.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Q: Do you provide maintenance services?</h4>
+                <p style="color: var(--text-light);">A: Yes, we offer professional maintenance and cleaning services. Our expert team can advise on care requirements and provide specialized cleaning for different materials.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Q: What is your delivery timeframe?</h4>
+                <p style="color: var(--text-light);">A: Standard products are typically delivered within 2-3 weeks. Custom orders may take 4-8 weeks depending on complexity. International shipping is available to all countries.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">Q: Do you offer consultation services?</h4>
+                <p style="color: var(--text-light);">A: Yes, we provide free consultation with our design experts. We can visit your space, assess your needs, and provide personalized recommendations without obligation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="container" style="text-align: center; padding: 3rem 2rem;">
+        <h2 style="color: var(--accent-color); margin-bottom: 1rem;">Stay Updated</h2>
+        <p style="color: var(--text-light); margin-bottom: 2rem;">Subscribe to our newsletter for latest collections, exclusive offers, and design inspiration.</p>
+        <form style="display: flex; max-width: 500px; margin: 0 auto; gap: 0.5rem;">
+            <input type="email" placeholder="Enter your email" required style="flex: 1; padding: 1rem; background-color: var(--secondary-color); color: var(--text-color); border: 1px solid var(--accent-color); border-radius: 5px; font-family: inherit;">
+            <button type="submit" class="cta-button" style="margin: 0;">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TAPIS GLOBAL</h3>
+                    <p>Premium flooring solutions for luxury living. Crafted excellence since 2000.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook">f</a>
+                        <a href="#" title="Instagram">📷</a>
+                        <a href="#" title="LinkedIn">in</a>
+                        <a href="#" title="Twitter">𝕏</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>📍 123 Luxury Avenue, Dubai, UAE</p>
+                    <p>📞 +971-4-123-4567</p>
+                    <p>📧 info@tapisglobal.com</p>
+                    <p>🕐 Mon-Sat: 9AM-6PM</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for latest collections and offers.</p>
+                    <form style="display: flex; margin-top: 1rem;">
+                        <input type="email" placeholder="Your email" style="flex: 1; padding: 0.5rem; background-color: var(--primary-color); color: var(--text-color); border: 1px solid var(--accent-color); border-radius: 5px 0 0 5px;">
+                        <button type="submit" style="background-color: var(--accent-color); color: var(--primary-color); padding: 0.5rem 1rem; border: none; border-radius: 0 5px 5px 0; cursor: pointer; font-weight: bold;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TAPIS GLOBAL INTERNATIONAL PVT LTD. All rights reserved.</p>
+                <p>Privacy Policy | Terms of Service | Cookie Policy</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
