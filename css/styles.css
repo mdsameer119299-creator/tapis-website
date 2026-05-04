@@ -71,35 +71,46 @@ h3 {
 }
 
 .utility-bar {
-    background: var(--navy);
-    color: rgba(255, 250, 240, 0.88);
-    font-size: 0.75rem;
+  background: #0b1f2a;
+  padding: 14px 0;   /* increase height */
+  font-size: 14px;
 }
 
 .utility-inner {
-    min-height: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    overflow-x: auto;
-    white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .utility-inner span {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.42rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #d6e2ea;
+  padding: 0 14px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  letter-spacing: 0.3px;
+  font-weight: 500;
+  }
+
+  .utility-inner span::before {
+  content: "•";
+  color: #d4af37;
+  font-size: 12px;
+  margin-right: 8px;
+  opacity: 0.9;
 }
 
-.utility-inner span::before {
-    content: "✦";
-    color: var(--gold);
-    font-size: 0.75rem;
+  .utility-inner span:last-child {
+  border-right: none;
 }
+
 
 nav,
 .main-nav {
+    
     background: rgba(255, 255, 255, 0.86);
     border-bottom: 1px solid rgba(16, 32, 42, 0.08);
     backdrop-filter: blur(18px);
@@ -154,11 +165,10 @@ body > nav.is-scrolled .nav-links a {
 }
 
 .brand-logo {
-    display: block;
-    width: clamp(360px, 34vw, 560px);
-    height: auto;
-    max-height: 112px;
-    object-fit: contain;
+  height: 75px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .brand-fallback {
@@ -1539,4 +1549,11 @@ main > section.is-visible {
         right: 16px;
         bottom: 16px;
     }
+}
+.footer-logo {
+    width: 160px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    margin-bottom: 10px;
 }
