@@ -116,7 +116,7 @@ nav,
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     box-shadow: 0 12px 36px rgba(6, 23, 34, 0.08);
-    padding: 0;
+    padding: 1rem 0;
 }
 
 body > nav {
@@ -261,7 +261,7 @@ body > nav.is-scrolled .nav-links a {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: 1.4rem;
     list-style: none;
 }
 
@@ -269,15 +269,17 @@ body > nav.is-scrolled .nav-links a {
     border-radius: 999px;
     color: var(--ink);
     display: inline-flex;
-    font-size: 0.84rem;
-    font-weight: 800;
-    padding: 0.7rem 0.85rem;
-    text-decoration: none;
+    font-size: 0.92rem;
+font-weight: 600;
+letter-spacing: 0.4px;
+padding: 0.6rem 0.3rem;
+text-transform: uppercase;
+text-decoration: none;
     transition: color 0.25s ease, background 0.25s ease, transform 0.25s ease;
 }
 
 .nav-links a:hover {
-    background: rgba(207, 181, 59, 0.12);
+    background: transparent;
     color: var(--gold-deep);
     transform: translateY(-1px);
 }
@@ -394,7 +396,10 @@ body > nav.is-scrolled .nav-links a {
     position: relative;
     overflow: hidden;
     background:
-        linear-gradient(90deg, rgba(6, 23, 34, 0.94) 0%, rgba(6, 23, 34, 0.82) 46%, rgba(6, 23, 34, 0.38) 100%),
+        linear-gradient(90deg, rgba(6, 23, 31, 0.002) 0%, rgba(6, 23, 34, 0.002) 46%, rgba(6, 23, 34, 0.002) 100%),
+        background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
         url("../images/Fei Decor Banner.jpg") center / cover;
 }
 
@@ -403,12 +408,19 @@ body > nav.is-scrolled .nav-links a {
     content: "";
     position: absolute;
     inset: 0;
+
     background:
-        radial-gradient(circle at 15% 18%, rgba(207, 181, 59, 0.22), transparent 23rem),
-        linear-gradient(180deg, transparent 74%, rgba(6, 23, 34, 0.72));
+    radial-gradient(circle at 15% 18%, rgba(255,215,120,0.10), transparent 30%),
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,0.45) 0%,
+        rgba(0,0,0,0.18) 35%,
+        rgba(0,0,0,0.04) 65%,
+        rgba(0,0,0,0) 100%
+    );
+
     pointer-events: none;
 }
-
 .hero-showcase__grid,
 .hero {
     display: grid;
@@ -418,7 +430,7 @@ body > nav.is-scrolled .nav-links a {
 }
 
 .hero-showcase__grid {
-    min-height: 690px;
+    min-height: 78vh;
     padding: 4rem 0;
     position: relative;
     z-index: 1;
@@ -623,9 +635,11 @@ section h2 {
 }
 
 .serve-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.4rem;
+    width: 100%;
 }
-
 .serve-grid article,
 .product-showcase-grid article,
 .solution-grid article,
@@ -1569,23 +1583,35 @@ main > section.is-visible {
     z-index: 0;
 }
 
-.hero-slider .slide {
+.hero-slider {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.slide {
     position: absolute;
     inset: 0;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     opacity: 0;
-    transition: opacity 1.5s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 
-.hero-slider .slide.active {
+.slide.active {
+    opacity: 1;
+     filter: brightness(1.08);
+}
+
+.slide.active {
     opacity: 1;
 }
 
 .hero-showcase__overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.55);
+    background: rgba(0, 0, 0, 0.35);
     z-index: 1;
 }
 
