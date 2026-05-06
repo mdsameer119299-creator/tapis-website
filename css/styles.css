@@ -1054,14 +1054,17 @@ footer,
     margin-bottom: 20px;
 }
 
+.footer-logo {
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 1.5rem;
+}
+
 .footer-logo img {
     width: 100%;
     height: auto;
     display: block;
     object-fit: contain;
-}
-.footer-logo .brand-fallback strong {
-    font-size: 1.45rem;
 }
 
 .footer-logo .brand-fallback::before {
