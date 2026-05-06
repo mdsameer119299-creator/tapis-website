@@ -174,3 +174,16 @@ function handleViewportHeight() {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
+const slides = document.querySelectorAll(".hero-slider .slide");
+
+let currentSlide = 0;
+
+function changeSlide() {
+    slides[currentSlide].classList.remove("active");
+
+    currentSlide = (currentSlide + 1) % slides.length;
+
+    slides[currentSlide].classList.add("active");
+}
+
+setInterval(changeSlide, 4000);
